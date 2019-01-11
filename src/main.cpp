@@ -97,8 +97,8 @@ int main() {
             double shift_x = ptsx[i] - px;
             double shift_y = ptsy[i] - py;
 
-            ptsx[i] = (shift_x * cos(-psi)) - shift_y * sin(-psi);
-            ptsy[i] = (shift_x * sin(-psi)) + shift_y * cos(-psi);
+            ptsx[i] = (shift_x * cos(-psi)) - (shift_y * sin(-psi));
+            ptsy[i] = (shift_x * sin(-psi)) + (shift_y * cos(-psi));
           }
 
           double* ptrx = &ptsx[0];
