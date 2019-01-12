@@ -20,7 +20,7 @@ double rad2deg(double x) { return x * 180 / pi(); }
 // Checks if the SocketIO event has JSON data.
 // If there is data the JSON object in string format will be returned,
 // else the empty string "" will be returned.
-string hasData(string s) {
+std::string hasData(std::string s) {
   auto found_null = s.find("null");
   auto b1 = s.find_first_of("[");
   auto b2 = s.rfind("}]");
@@ -76,13 +76,13 @@ int main() {
     // "42" at the start of the message means there's a websocket message event.
     // The 4 signifies a websocket message
     // The 2 signifies a websocket event
-    string sdata = string(data).substr(0, length);
+    std::string sdata = string(data).substr(0, length);
     cout << sdata << endl;
     if (sdata.size() > 2 && sdata[0] == '4' && sdata[1] == '2') {
-      string s = hasData(sdata);
+      std::string s = hasData(sdata);
       if (s != "") {
         auto j = json::parse(s);
-        string event = j[0].get<string>();
+        std::string event = j[0].get<string>();
         if (event == "telemetry") {
           // j[1] is the data JSON object
           vector<double> ptsx = j[1]["ptsx"];
