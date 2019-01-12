@@ -4,6 +4,7 @@
 #include "Eigen-3.3/Eigen/Core"
 
 using CppAD::AD;
+using namespace std;
 
 // TODO: Set the timestep length and duration
 size_t N = 10;
@@ -127,7 +128,7 @@ class FG_eval {
 MPC::MPC() {}
 MPC::~MPC() {}
 
-vector<double> MPC::Solve(Eigen::VectorXd state, Eigen::VectorXd coeffs) {
+std::vector<double> MPC::Solve(Eigen::VectorXd state, Eigen::VectorXd coeffs) {
   bool ok = true;
   size_t i;
   typedef CPPAD_TESTVECTOR(double) Dvector;
